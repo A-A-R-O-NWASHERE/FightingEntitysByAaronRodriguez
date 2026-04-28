@@ -252,8 +252,8 @@ GameObject:
   - component: {fileID: 380642289}
   - component: {fileID: 380642288}
   - component: {fileID: 380642287}
-  - component: {fileID: 380642286}
   - component: {fileID: 380642291}
+  - component: {fileID: 380642292}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -261,20 +261,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &380642286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380642285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e1a50f6598c7340b69e94d3f68b924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalInput: 10
-  speed: 10
 --- !u!136 &380642287
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -393,6 +379,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &380642292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380642285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe544e3b1f5590a4790980ff18f42e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  jumpForce: 5
+  groundCheck: {fileID: 1473535247}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheckRadius: 0.2
 --- !u!1 &708696899
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +411,8 @@ GameObject:
   - component: {fileID: 708696902}
   - component: {fileID: 708696901}
   - component: {fileID: 708696905}
+  - component: {fileID: 708696906}
+  - component: {fileID: 708696907}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -531,6 +538,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &708696906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708696899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31472194f6cadd5428f7babdaf90a341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 380642290}
+  speed: 3
+  jumpForce: 5
+  gravity: 20
+  stopDistance: 1
+--- !u!143 &708696907
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708696899}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1082591159
 GameObject:
   m_ObjectHideFlags: 0
