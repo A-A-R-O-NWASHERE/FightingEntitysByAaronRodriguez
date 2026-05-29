@@ -33,7 +33,7 @@ public class bettermovement : MonoBehaviour
         // 2. Jumping Input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0f);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, 0f);
         }
     }
 
@@ -43,6 +43,6 @@ public class bettermovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
 
         // 4. Move Left/Right, maintaining vertical velocity for gravity/jumping
-        rb.velocity = new Vector3(horizontalInput * moveSpeed, rb.velocity.y, 0f);
+        rb.linearVelocity = new Vector3(horizontalInput * moveSpeed, rb.linearVelocity.y, 0f);
     }
 }
